@@ -32,6 +32,18 @@ Sniffing: Capturing raw packets from the network interface.
 
 ![IMG_1856 (1)](https://github.com/user-attachments/assets/44ab58a5-9b27-4e46-92f5-3cb43d418c1e)
 
+Before I started the GUI and sniffer I put VVV
+conf.verb = 10
+# Set verbosity to a high level
+>> sniff (iface="en®", count=5, prn=lambda x: x.summary(), timeout=10) # Add a timeout
+Ether / IPv6 / ICMPv6ND_NS / ICMPv6 Neighbor Discovery Option - Source
+Link-Layer Address 16:73:8e:db:05:2a
+Ether / IPv6 / ICMPv6ND_NS / ICMPv6 Neighbor Discovery Option - Source Link-Layer Address 16:73:8e:db:05:2a
+Ether / IPv6 / ICMP6 Neighbor Discovery - Neighbor Advertisement (tgt: fe80::1872:18df: f91e:7742)
+Ether IPv6 / ICMPv6 Neighbor Discovery - Neighbor Advertisement (tgt: 2600:4040:79c7:2300:7dc7:2a2e:d519:7ef3)
+Ether / ARP who has 192.168.1.243 says 192.168.1.1
+< Sniffed: TCP:0 UDP:0 ICMP:0 Other:5>
+
 
 Dissection: Parsing the raw packet data into its various layers (Ethernet, IP, TCP, UDP, DNS, HTTP, etc.) and extracting meaningful information.
 

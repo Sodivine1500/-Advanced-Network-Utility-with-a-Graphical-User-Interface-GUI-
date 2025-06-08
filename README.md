@@ -67,6 +67,7 @@ The GUI remains responsive by putting it in a separate thread, allowing you to c
 queue Module: A queue. The object queue is used as a thread-safe communication channel. Packets captured by the sniffing thread are placed into this queue. The main GUI thread then periodically checks this queue, pulls out packets, and updates the display. This prevents potential data corruption that could occur if multiple threads tried to access the same GUI elements directly.
 
 
+
 The Journey: How It Was Made
 Creating this utility involved several steps and troubleshooting processes:
 
@@ -80,10 +81,10 @@ Running from Terminal: The script is executed from the macOS Terminal. Due to th
 
 Interface Identification: I learned to use the ifconfig (and netstat -rn | grep default) command in Terminal to identify your active network interface (which turned out to be en0 on your Mac). This interface name was then passed to the script using the -i argument.
 
+
+
 Challenges Encountered and How They Were Solved
 My journey wasn't entirely smooth, and I tackled several common challenges:
-
-
 
 Problem: File Saving with Incorrect Extension (.py.txt)
 
@@ -103,7 +104,7 @@ Issue: When trying to run the script, Terminal reported that it couldn't find th
 
 Solution:
 
-Navigation: We clarified the use of the cd command (e.g., cd Desktop or cd Documents) to change the Terminal's current directory to where the script was located.
+Navigation: I clarified the use of the cd command (e.g., cd Desktop or cd Documents) to change the Terminal's current directory to where the script was located.
 
 Foolproof Method: The most robust solution was to use drag-and-drop. By typing sudo python3  (with a space) and then dragging the script file directly from Finder into the Terminal window, the full, correct path to the script was automatically inserted, eliminating any directory navigation errors.
 
@@ -111,13 +112,13 @@ Problem: Scapy Permissions (Silent Failure)
 
 Issue: When first trying to run the script, it wouldn't start sniffing or throw an obvious error. This was due to the requirement for Scapy to have root (administrator) privileges to access raw network packets.
 
-Solution: We correctly instructed you to prefix the Python command with sudo (e.g., sudo python3 ...). This elevates the script's permissions, allowing it to perform low-level network operations. You would then be prompted for your Mac's password.
+Solution: I correctly instructed you to prefix the Python command with sudo (e.g., sudo python3 ...). This elevates the script's permissions, allowing it to perform low-level network operations. You would then be prompted for your Mac's password.
 
 Problem: Identifying the Correct Network Interface
 
 Issue: The ifconfig command can output many network interfaces (lo0, en0, en1, utun0, awdl0, etc.), and it's not immediately obvious which one is connected to the internet.
 
-Solution: We guided you to look for key indicators in the ifconfig output:
+Solution: I guided you to look for key indicators in the ifconfig output:
 
 status: active
 
@@ -125,11 +126,11 @@ UP and RUNNING flags.
 
 An inet IPv4 address that looks like a typical local network IP (e.g., 192.168.1.X).
 
-We also used netstat -rn | grep default to definitively identify the interface handling your internet traffic's "default route," which confirmed en0 as the correct choice.
+I also used netstat -rn | grep default to definitively identify the interface handling your internet traffic's "default route," which confirmed en0 as the correct choice.
 
 Problem: Packets Captured but Not Displayed in GUI (The "Blank GUI" Issue)
 
-Issue: This was the most challenging and subtle problem. Even though debug messages in the Terminal showed that Scapy it was successfully capturing packets and putting them into the internal packet_queue, the GUI's text area remained blank.
+Issue: This was the most challenging and subtle problem. Even though debug messages in the Terminal showed that Scapy was successfully capturing packets and putting them into the internal packet_queue, the GUI's text area remained blank.
 
 Root Cause: The process_packet_queue function, which runs on the main GUI thread to display packets, was inadvertently stopping its periodic rescheduling. This happened because it performed an initial check when the GUI application first launched (__init__), and at that time, the self.is_sniffing flag was False (since you hadn't clicked "Start Sniffing" yet). Based on this False state, it decided there was nothing to do, and critically, it stopped rescheduling itself via self.master.after().
 
@@ -144,6 +145,8 @@ Additional try-except blocks and debug prints were added to process_packet_queue
 Problem: Small Text in GUI
 
 Issue: The default font size for the output text in the ScrolledText widget was too small for comfortable reading.
+
+![IMG_1868](https://github.com/user-attachments/assets/e87a9418-92e9-48ae-aa28-3497d4f5008e)
 
 Solution: We adjusted the font_output variable in the SnifferApp class to a larger size (e.g., ("Consolas", 11)), which directly controls the text size in the main display area. We also made minor adjustments to other font sizes (font_large, font_medium maintain a balanced and readable aesthetic throughout the GUI.
 

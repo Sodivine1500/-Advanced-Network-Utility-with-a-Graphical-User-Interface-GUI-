@@ -1,4 +1,4 @@
-# Advanced-Network-Utility-with-a-Graphical-User-Interface-GUI
+# Advanced-Network-Utility-with-a-Graphical-User-Interface-GUI / Port Scanner
 
 This project is an Advanced Network Utility built using Python, primarily leveraging the Scapy library and a Tkinter graphical user interface (GUI). Its main purpose is to act as a packet sniffer and dissector, allowing you to:
 

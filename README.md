@@ -18,6 +18,7 @@ Filter Traffic: Apply filters based on IP address or port number to focus only o
 
 Track Basic Flow Statistics: Keep a count of packets belonging to the same "conversation" or flow.
 
+![IMG_1854](https://github.com/user-attachments/assets/9a43c05b-f439-420b-9c9e-e9a0bd4567da)
 
 Essentially, it gives you a window into the otherwise invisible world of data flowing on your network.
 

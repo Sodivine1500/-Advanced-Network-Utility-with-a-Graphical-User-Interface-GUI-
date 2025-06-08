@@ -30,7 +30,7 @@ Scapy: A powerful Python library for packet manipulation. It's the engine that h
 
 Sniffing: Capturing raw packets from the network interface.
 
-
+![image_alt](https://github.com/Sodivine1500/-Advanced-Network-Utility-with-a-Graphical-User-Interface-GUI-/blob/8717d118bc56a1ca1d72aa172f613b0bc40571cd/IMG_1856.HEIC)
 
 Dissection: Parsing the raw packet data into its various layers (Ethernet, IP, TCP, UDP, DNS, HTTP, etc.) and extracting meaningful information.
 

@@ -32,7 +32,7 @@ Sniffing: Capturing raw packets from the network interface.
 
 ![IMG_1856 (1)](https://github.com/user-attachments/assets/44ab58a5-9b27-4e46-92f5-3cb43d418c1e)
 
-Before I started the GUI and sniffer I put VVV
+Before I started the GUI and sniffer, I put VVV
 conf.verb = 10
 # Set verbosity to a high level
 >> sniff (iface="en®", count=5, prn=lambda x: x.summary(), timeout=10) # Add a timeout
@@ -69,18 +69,18 @@ queue Module: A queue. The object queue is used as a thread-safe communication c
 The Journey: How It Was Made
 Creating this utility involved several steps and troubleshooting processes:
 
-Code Provision: I provided the initial Python script containing the core logic for sniffing, GUI creation, and inter-thread communication.
+Code Provision: The initial Python script containing the core logic for sniffing, GUI creation, and inter-thread communication.
 
-Saving the Script: You saved the Python code to a file on your Mac, specifically advanced_network_utility.py.
+Saving the Script: I saved the Python code to a file on my Mac, specifically advanced_network_utility.py.
 
-Dependency Installation: You installed the scapy library using pip install scapy in your Terminal, which is essential for the script's core functionality.
+Dependency Installation: I installed the scapy library using pip install scapy in your Terminal, which is essential for the script's core functionality.
 
 Running from Terminal: The script is executed from the macOS Terminal. Due to the low-level network access required for sniffing, it had to be run with administrator (root) privileges using sudo python3.
 
-Interface Identification: You learned to use the ifconfig (and netstat -rn | grep default) command in Terminal to identify your active network interface (which turned out to be en0 on your Mac). This interface name was then passed to the script using the -i argument.
+Interface Identification: I learned to use the ifconfig (and netstat -rn | grep default) command in Terminal to identify your active network interface (which turned out to be en0 on your Mac). This interface name was then passed to the script using the -i argument.
 
 Challenges Encountered and How They Were Solved
-Our journey wasn't entirely smooth, and we tackled several common challenges:
+My journey wasn't entirely smooth, and I tackled several common challenges:
 
 
 
@@ -92,7 +92,7 @@ Issue: TextEdit, macOS's default text editor, often tries to be "helpful" by aut
 
 Solution:
 
-Initial Advice: We first tried to guide you to uncheck the "Hide Extension" option in TextEdit's save dialog and Finder preferences.
+Initial Advice: I first tried to guide you to uncheck the "Hide Extension" option in TextEdit's save dialog and Finder preferences.
 
 Definitive Fix: When those proved stubborn, the most reliable solution was to use the Terminal's mv (move/rename) command, providing the exact old filename (e.g., advanced_network_utility.py.txt) and the exact desired new filename (advanced_network_utility.py). This command bypasses graphical editor quirks and forces the correct naming.
 
@@ -130,13 +130,13 @@ Problem: Packets Captured but Not Displayed in GUI (The "Blank GUI" Issue)
 
 Issue: This was the most challenging and subtle problem. Even though debug messages in the Terminal showed that Scapy it was successfully capturing packets and putting them into the internal packet_queue, the GUI's text area remained blank.
 
-Root Cause: The process_packet_queue The function, which runs on the main GUI thread to display packets, was inadvertently stopping its periodic rescheduling. This happened because it performed an initial check when the GUI application first launched (__init__), and at that time, the self.is_sniffing flag was False (since you hadn't clicked "Start Sniffing" yet). Based on this False state, it decided there was nothing to do, and critically, it stopped rescheduling itself via self.master.after().
+Root Cause: The process_packet_queue function, which runs on the main GUI thread to display packets, was inadvertently stopping its periodic rescheduling. This happened because it performed an initial check when the GUI application first launched (__init__), and at that time, the self.is_sniffing flag was False (since you hadn't clicked "Start Sniffing" yet). Based on this False state, it decided there was nothing to do, and critically, it stopped rescheduling itself via self.master.after().
 
 Solution: The core fix involved restructuring the process_packet_queue scheduling:
 
-We removed the initial scheduling of process_packet_queue from the __init__ method.
+I removed the initial scheduling of process_packet_queue from the __init__ method.
 
-We ensured that process_packet_queue is explicitly scheduled only when you click "Start Sniffing". At that point, self.is_sniffing is set to True, so the process_packet_queue will correctly enter its loop and continuously reschedule itself, pulling packets from the queue and updating the display.
+I ensured that process_packet_queue is explicitly scheduled only when you click "Start Sniffing". At that point, self.is_sniffing is set to True, so the process_packet_queue will correctly enter its loop and continuously reschedule itself, pulling packets from the queue and updating the display.
 
 Additional try-except blocks and debug prints were added to process_packet_queue and _dissect_and_display_packet to confirm that packets were being pulled from the queue and that the GUI insertion step was succeeding, helping to track this subtle bug down.
 
@@ -146,7 +146,7 @@ Issue: The default font size for the output text in the ScrolledText widget was 
 
 Solution: We adjusted the font_output variable in the SnifferApp class to a larger size (e.g., ("Consolas", 11)), which directly controls the text size in the main display area. We also made minor adjustments to other font sizes (font_large, font_medium maintain a balanced and readable aesthetic throughout the GUI.
 
-Through these iterative steps of coding, debugging, and targeted problem-solving, we successfully got your Advanced Network Utility up and running, providing a powerful tool for network analysis!
+Through these iterative steps of coding, debugging, and targeted problem-solving, I successfully got ymy Advanced Network Utility up and running, providing a powerful tool for network analysis!
 
 
 

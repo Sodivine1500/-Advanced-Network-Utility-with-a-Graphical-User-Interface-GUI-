@@ -30,8 +30,6 @@ Scapy: A powerful Python library for packet manipulation. It's the engine that h
 
 Sniffing: Capturing raw packets from the network interface.
 
-![image_alt](https://github.com/Sodivine1500/-Advanced-Network-Utility-with-a-Graphical-User-Interface-GUI-/blob/8717d118bc56a1ca1d72aa172f613b0bc40571cd/IMG_1856.HEIC)
-
 Dissection: Parsing the raw packet data into its various layers (Ethernet, IP, TCP, UDP, DNS, HTTP, etc.) and extracting meaningful information.
 
 Tkinter: Python's standard GUI toolkit. It's used to create the visual elements of the application, including:
@@ -51,7 +49,6 @@ Packet sniffing is a continuous, blocking operation. If it ran on the main GUI t
 
 The GUI remains responsive by putting it in a separate thread, allowing you to click buttons and interact while packets are being captured in the background.
 queue Module: A queue. The object queue is used as a thread-safe communication channel. Packets captured by the sniffing thread are placed into this queue. The main GUI thread then periodically checks this queue, pulls out packets, and updates the display. This prevents potential data corruption that could occur if multiple threads tried to access the same GUI elements directly.
-
 
 
 The Journey: How It Was Made

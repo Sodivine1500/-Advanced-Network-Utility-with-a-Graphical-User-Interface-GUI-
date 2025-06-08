@@ -79,6 +79,8 @@ Dependency Installation: I installed the scapy library using pip install scapy i
 
 Running from Terminal: The script is executed from the macOS Terminal. Due to the low-level network access required for sniffing, it had to be run with administrator (root) privileges using sudo python3.
 
+sudo python3 /Users/divine/Desktop/advanced_network_utility.py -i en0 (This pulls up the sniffer and gives me the options to Start, Stop and put IP and Port filters)
+
 Interface Identification: I learned to use the ifconfig (and netstat -rn | grep default) command in Terminal to identify your active network interface (which turned out to be en0 on your Mac). This interface name was then passed to the script using the -i argument.
 
 

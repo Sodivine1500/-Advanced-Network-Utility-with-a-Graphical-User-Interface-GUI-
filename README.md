@@ -146,11 +146,9 @@ Issue: The default font size for the output text in the ScrolledText widget was 
 
 Solution: We adjusted the font_output variable in the SnifferApp class to a larger size (e.g., ("Consolas", 11)), which directly controls the text size in the main display area. We also made minor adjustments to other font sizes (font_large, font_medium maintain a balanced and readable aesthetic throughout the GUI.
 
-Through these iterative steps of coding, debugging, and targeted problem-solving, I successfully got ymy Advanced Network Utility up and running, providing a powerful tool for network analysis!
+Through these iterative steps of coding, debugging, and targeted problem-solving, I successfully got my Advanced Network Utility up and running, providing a powerful tool for network analysis!
 
-
-
-
+![IMG_1885](https://github.com/user-attachments/assets/81025ebb-c92c-4238-812f-fe3c7d93098c)
 
 
 

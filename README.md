@@ -12,13 +12,17 @@ Network Layer: Source and Destination IP addresses (IPv4 and IPv6), ARP requests
 
 Transport Layer: Source and Destination Ports for TCP and UDP, TCP flags.
 
-Application Layer (Basic): Identify HTTP requests/responses, DNS queries/answers, and display raw payload data.
+Application Layer (Advanced): Enhancing the information displayed for common protocols like HTTP and DNS
 
 Filter Traffic: Apply filters based on IP address or port number to focus only on specific traffic of interest, reducing clutter.
 
+Large Packet Detection: Flagging packets that exceed a certain size, which can sometimes indicate unusual data transfers.
+
+Common Malicious Ports: Alerting if traffic is observed on ports often associated with malware
+
 Track Basic Flow Statistics: Keep a count of packets belonging to the same "conversation" or flow.
 
-![IMG_1854](https://github.com/user-attachments/assets/9a43c05b-f439-420b-9c9e-e9a0bd4567da)
+![IMG_1897](https://github.com/user-attachments/assets/e5a4ecd9-e388-4c50-b6d7-80d423ca578c)
 
 Essentially, it gives you a window into the otherwise invisible world of data flowing on your network.
 
@@ -79,7 +83,7 @@ Dependency Installation: I installed the scapy library using pip install scapy i
 
 Running from Terminal: The script is executed from the macOS Terminal. Due to the low-level network access required for sniffing, it had to be run with administrator (root) privileges using sudo python3.
 
-sudo python3 /Users/divine/Desktop/advanced_network_utility.py -i en0 (This pulls up the sniffer and gives me the options to Start, Stop and put IP and Port filters)
+sudo python3 /Users/divine/Desktop/advanced_network_utility.py -i en0 (This pulls up the sniffer and gives me the options to Start, Stop ,and put IP and Port filters)
 
 Interface Identification: I learned to use the ifconfig (and netstat -rn | grep default) command in Terminal to identify your active network interface (which turned out to be en0 on your Mac). This interface name was then passed to the script using the -i argument.
 
@@ -154,7 +158,7 @@ Solution: We adjusted the font_output variable in the SnifferApp class to a larg
 
 Through these iterative steps of coding, debugging, and targeted problem-solving, I successfully got my Advanced Network Utility up and running, providing a powerful tool for network analysis!
 
-![IMG_1885](https://github.com/user-attachments/assets/81025ebb-c92c-4238-812f-fe3c7d93098c)
+![IMG_1895 (1)](https://github.com/user-attachments/assets/758c73d3-b467-4d19-a064-2a2898234e4d)
 
 
 

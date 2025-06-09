@@ -162,7 +162,7 @@ Through these iterative steps of coding, debugging, and targeted problem-solving
 
 PORT SCANNER
 
-A tool often used by malicious actors or penetration testers. However, in our context, it became a controlled, test instrument to ensure your defensive (detection) mechanism was correctly calibrated and implemented. I made a script to ensure that it would pick up any unusual traffic from the ports.
+A tool often used by malicious actors or penetration testers. However, in our context, it became a controlled, test instrument to ensure my defensive (detection) mechanism was correctly calibrated and implemented. I made a script to ensure that it would pick up any unusual traffic from the ports.
 
 ![IMG_1900](https://github.com/user-attachments/assets/7552fac1-0046-4168-a0ad-99f40b4bdccb)
 

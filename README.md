@@ -22,7 +22,8 @@ Common Malicious Ports: Alerting if traffic is observed on ports often associate
 
 Track Basic Flow Statistics: Keep a count of packets belonging to the same "conversation" or flow.
 
-![IMG_1897](https://github.com/user-attachments/assets/e5a4ecd9-e388-4c50-b6d7-80d423ca578c)
+<img width="1710" height="1107" alt="Screenshot 2025-07-14 at 12 22 05 AM" src="https://github.com/user-attachments/assets/54c4452d-18a3-4508-b80f-a5acc568dbbd" />
+
 
 **BEFORE YOU CLICK LINK**
 **THIS IS THE CODE FOR THE NETWORK UTILITY**
@@ -40,7 +41,8 @@ Scapy: A powerful Python library for packet manipulation. It's the engine that h
 
 Sniffing: Capturing raw packets from the network interface.
 
-![IMG_1856 (1)](https://github.com/user-attachments/assets/44ab58a5-9b27-4e46-92f5-3cb43d418c1e)
+<img width="1710" height="1107" alt="Screenshot 2025-07-14 at 12 24 30 AM" src="https://github.com/user-attachments/assets/e58393b2-2967-4202-8781-7c8e70cdb85e" />
+
 
 Before I started the GUI and sniffer, I put VVV
 conf.verb = 10

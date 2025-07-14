@@ -90,7 +90,7 @@ Dependency Installation: I installed the scapy library using pip install scapy i
 
 Running from Terminal: The script is executed from the macOS Terminal. Due to the low-level network access required for sniffing, it had to be run with administrator (root) privileges using sudo python3.
 
-sudo python3 /Users/divine/Desktop/advanced_network_utility.py -i en0 (This pulls up the sniffer and gives me the options to Start, Stop ,and put IP and Port filters)
+sudo python3 /Users/divine/Desktop/advanced_network_utility.py -i en0 (This pulls up the sniffer and gives me the options to Start, Stop, and put IP and Port filters)
 
 Interface Identification: I learned to use the ifconfig (and netstat -rn | grep default) command in Terminal to identify your active network interface (which turned out to be en0 on your Mac). This interface name was then passed to the script using the -i argument.
 
@@ -165,13 +165,14 @@ Solution: We adjusted the font_output variable in the SnifferApp class to a larg
 
 Through these iterative steps of coding, debugging, and targeted problem-solving, I successfully got my Advanced Network Utility up and running, providing a powerful tool for network analysis!
 
-![IMG_1895 (1)](https://github.com/user-attachments/assets/758c73d3-b467-4d19-a064-2a2898234e4d)
+<img width="1710" height="1107" alt="Screenshot 2025-07-14 at 12 33 28 AM" src="https://github.com/user-attachments/assets/6995629f-3e10-4741-ae7b-2c8d252fbccc" />
+
 
 
 
 PORT SCANNER
 
-A tool often used by malicious actors or penetration testers. However, in our context, it became a controlled, test instrument to ensure my defensive (detection) mechanism was correctly calibrated and implemented. I made a script to ensure that it would pick up any unusual traffic from the ports.
+A tool is often used by malicious actors or penetration testers. However, in our context, it became a controlled, test instrument to ensure my defensive (detection) mechanism was correctly calibrated and implemented. I made a script to ensure that it would pick up any unusual traffic from the ports.
 
 import socket
 import sys

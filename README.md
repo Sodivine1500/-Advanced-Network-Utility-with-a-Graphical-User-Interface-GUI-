@@ -167,6 +167,40 @@ PORT SCANNER
 
 A tool often used by malicious actors or penetration testers. However, in our context, it became a controlled, test instrument to ensure my defensive (detection) mechanism was correctly calibrated and implemented. I made a script to ensure that it would pick up any unusual traffic from the ports.
 
+import socket
+import sys
+
+# Define the base IP address (first three octets)
+# This should be the network segment you want to scan.
+# For example, if your network is 192.168.1.x, set it to "192.168.1."
+ip_base = "192.168.1." # Notice the dot at the end
+
+# Define the range for the LAST octet of the IP address
+start_ip_suffix = 160  # Starting last octet (e.g., 192.168.1.160)
+end_ip_suffix = 165    # Ending last octet (e.g., 192.168.1.165)
+
+ports_to_scan = range(1, 21) # Ports 1-20
+
+print(f"Attempting to scan IP addresses from {ip_base}{start_ip_suffix} to {ip_base}{end_ip_suffix} on ports {min(ports_to_scan)}-{max(ports_to_scan)}...")
+
+for i in range(start_ip_suffix, end_ip_suffix + 1):
+    target_ip = f"{ip_base}{i}" # This will now correctly form IPs like 192.168.1.160, 192.168.1.161, etc.
+    print(f"\n--- Scanning IP: {target_ip} ---")
+    for port in ports_to_scan:
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        sock.settimeout(0.1) # Short timeout
+        try:
+            sock.connect((target_ip, port))
+            print(f"  Port {port} OPEN on {target_ip}")
+        except (socket.timeout, ConnectionRefusedError):
+            # print(f"  Port {port} closed/filtered on {target_ip}") # Uncomment if you want to see closed ports
+            pass # Suppress output for closed/filtered ports for cleaner output
+        except Exception as e:
+            print(f"  Error checking port {port} on {target_ip}: {e}")
+        finally:
+            sock.close()
+print("\nPort scan simulation complete for all target IPs.")
+
 ![IMG_1900](https://github.com/user-attachments/assets/7552fac1-0046-4168-a0ad-99f40b4bdccb)
 
 
